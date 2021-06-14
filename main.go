@@ -28,6 +28,10 @@ func missingNumber (array []int){
 		}
 	}
 }
+func simple( a func(a,b int) int){
+	fmt.Printf("%T", a)
+    fmt.Println(a(50,5))
+}
 
 func twice(f func(int) int) func(int) int {
 	return func(x int) int {
@@ -64,6 +68,14 @@ func main(){
 			plusThree := func(i int) int {
 				return i + 3
 			}
+			f := func(a, b int) int {
+				return a + b
+			}
+			h := func(a, b int) int{
+				return a - b
+			}
+			simple(f)
+			simple(h)
 
 			g := twice(plusThree)
 			fmt.Println(squareSum(2)(6)(3))
